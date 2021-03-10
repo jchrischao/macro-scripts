@@ -1,0 +1,19 @@
+# macro-scripts
+vba script for exporting macros
+
+Sub metadata_export()
+
+Dim strSourceSheet As String
+Dim strFullname As String
+
+~> Change the below two lines as per your requirements
+strSourceSheet = "SampleInfo"
+strFullname = "C:\metadata_sheets\metadata_"
+
+ThisWorkbook.Sheets(strSourceSheet).Copy
+ActiveWorkbook.SaveAs Filename:=strFullname & Format(Now(), "DD-MM-YY") & ".csv", _
+                      FileFormat:=xlCSV, _
+                      CreateBackup:=True
+ActiveWorkbook.Close
+
+End Sub
